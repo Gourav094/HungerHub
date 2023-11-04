@@ -1,5 +1,8 @@
+import React from "react";
+import ReactDOM from "react-dom"
+
 // Printing hello world in react 
-const heading = React.createElement('h1', { id: "heading" }, "Hello World from React!");
+const heading = React.createElement('h1', { id: "heading" }, "Hello World from React!!!");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -16,14 +19,14 @@ Lets create this type of structure
 parent-> ReactElement(object) ==> HTML (browser understand)
 */
 
-const parent = React.createElement(
-    "div",
-    {id:"parent"},
-    React.createElement("div",{id:"child"},React.createElement("h1",{},"h1 tag"))
+// const parent = React.createElement(
+//     "div",
+//     {id:"parent"},
+//     React.createElement("div",{id:"child"},React.createElement("h1",{},"h1 tag"))
 
-)
-console.log(parent);
-root.render(parent);
+// )
+// console.log(parent);
+// root.render(parent);
 
 
 //what if child has more siblings like h1 and h2 tags 
