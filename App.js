@@ -1,47 +1,63 @@
 import React from "react";
 import ReactDOM from "react-dom"
 
-// Printing hello world in react 
-const heading = React.createElement('h1', { id: "heading" }, "Hello World from React!!!");
+
+// React Element
+const heading = (
+    <h1 className="heading">
+        Namaste React using JSX
+    </h1>
+)
+
+
+
+//React function component --> use function and camel case
+const HeadingComponent = () => {
+    return <h1>functional component</h1>;
+}
+
+
+const HeadingComp = () => (
+    <h1>Shorter way</h1>
+)
+
+//we can write any javscript code using curlie braces
+const ele = <span>React Element</span>
+
+
+//lets show some example --( component composition) 
+const Title = () => (
+    <h1 className="heading">
+        Namaste React using JSX
+    </h1>
+)
+
+const HeadingComponent2 = () => (
+    <div>
+        <Title/>
+        <Title></Title>
+        {Title()}
+        {ele} 
+        <h1>Functional component shorter way</h1>
+    </div>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(heading);
 
-/*
-Lets create this type of structure
-<div id="parent">
-    <div id="child">
-        <h1></h1>
-    </div>
-</div>
+root.render(<HeadingComponent2/>);
 
-parent-> ReactElement(object) ==> HTML (browser understand)
-*/
+// lets now compose Reacts elements into functions 
 
-// const parent = React.createElement(
-//     "div",
-//     {id:"parent"},
-//     React.createElement("div",{id:"child"},React.createElement("h1",{},"h1 tag"))
-
-// )
-// console.log(parent);
-// root.render(parent);
-
-
-//what if child has more siblings like h1 and h2 tags 
-// then just we need to give an array in place of third parameter
-
-const parent2 = React.createElement(
-    "div",
-    {id:"parent"},
-    React.createElement(
-        "div",
-        {id:"child"},
-        [React.createElement("h1",{},"h1 tag"),React.createElement("h2",{},"h2 tag")]
-    )
-
+const Head = (
+    <h1>React element Heading</h1>
 )
-root.render(parent2);
 
-// this gonna be messy structure so for overcome this we need to use JSX that gonna make our life easier.
+const ReactComponent = () => (
+    <div>
+        {Head}
+        <h1>Element into component</h1>
+    </div>
+)
+
+// root.render(<ReactComponent/>)
