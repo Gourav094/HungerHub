@@ -61,3 +61,46 @@ const ReactComponent = () => (
 )
 
 // root.render(<ReactComponent/>)
+
+
+
+
+// Lets see one example
+
+
+const user = {
+    firstname : 'Gourav',
+    lastname: 'garg'
+};
+
+function getName(){
+    return user.firstname + ' ' + user.lastname;
+}
+
+const name = ( 
+    <h1>Name is {getName()}</h1>
+)
+
+const Link = (
+    <a href="https://www.reactjs.org">click here for link</a>
+)
+
+const image = (
+    <img src="#hkdjf"></img>
+)
+
+const UserName = () => (
+    <div>
+        {name}
+        {Link}
+        <h1>
+            {getName()}, you successfully logged in !!
+        </h1>
+    </div>
+)
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<UserName/>);
+
+
+
