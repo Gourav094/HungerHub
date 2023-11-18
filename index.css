@@ -6,7 +6,7 @@
 }
 .logo{
     width: 150px;
-    height: 100px;
+    /* height: 100px; */
 }
 
 .nav-items ul{
@@ -27,7 +27,6 @@
 
 .res-card{
     width: 240px;
-    height: 380px;
     margin: 10px;
     border-radius: 10px;
     background-color: #f0f0f0;
@@ -51,4 +50,10 @@
     width: 100%;
     height: 150px;
     border-radius: 10px;
+}
+
+.filter-btn{
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
 }

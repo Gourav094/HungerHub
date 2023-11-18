@@ -26,3 +26,16 @@
 *npm parcel index.html*
 
 *npm parcel build index.html*
+
+
+**Two types of Export/Import**
+- Default Export/Import
+
+export Default Component
+import Component from path
+
+
+- Named Export/Import (use when need to export multiple things)
+export Component
+import {Component} from path
+
