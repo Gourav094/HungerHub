@@ -102,3 +102,5 @@ Actual DOM is the actual code that written using Tags
 #### Diff algorithm
 - It finds out the difference between two virtual DOM (means previous DOM and updates DOM)
 - after calculating diff, it actually update the DOM on every render cycle 
+
+To go in detail of react fibre [https://github.com/acdlite/react-fiber-architecture]
