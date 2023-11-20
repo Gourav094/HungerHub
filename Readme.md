@@ -2,7 +2,7 @@
 
 
 
-# Parcel
+## Parcel
 - Dev Build
 - Local Server
 - HMR = Hot Module Replacement
@@ -29,7 +29,7 @@
 *npm parcel build index.html*
 
 
-**Lets Build a food ordering app**
+## Lets Build a food ordering app
 
 We have divided the web app into 3 parts
 
@@ -51,20 +51,20 @@ We have divided the web app into 3 parts
     - Address
     - Contact
 
-## Props
+### Props
 Like a normal javascript function,it passed to components
 *we can pass any number of props to components*
 
 
-## Config Driven UI
+### Config Driven UI
 Controlling UI with data that comes from Backend
 i.e it handles the UI whenever deletion or updation done in data
 
-## *Optional Chaining*
+### *Optional Chaining*
 Used to access Object
 > e.g-> const {name,id,time} = resList?.data;
 
-## *Two types of Export/Import*
+### *Two types of Export/Import*
 - Default Export/Import
 
 export Default Component
@@ -81,13 +81,15 @@ Normal js function (utilitu function)
 - useState() - Superpowerful React variables [Import as Named import ]
 - useEffect()- 
 
-## use state 
+### use state 
 *It maintain state of component* (gives state variable that gonna store it somewhere)
 > e.g-> 
 const [List,setList] = useState(default_value)
 
 This is like a array that store the data in List variable 
 setList : use to modify the List variable (re-rendered)
+
+UseState is used to update UI after changing variables
 
 ## How React works ??
 React uses Reconciliation algorithm(React Fibre)
@@ -104,3 +106,31 @@ Actual DOM is the actual code that written using Tags
 - after calculating diff, it actually update the DOM on every render cycle 
 
 To go in detail of react fibre [https://github.com/acdlite/react-fiber-architecture]
+
+
+### Shimmer UI 
+The UI that show until data fetches from API ==> Used for better user experience
+
+### Conditional rendoring 
+when rendoring is based on only when some condition is true
+
+### Fetching Data from API
+> one way -> 
+ Load -> api -> render
+
+> second way
+Load -> render -> api -> render
+
+second way is better because quickly reloading 
+
+### UseEffect
+Another hook which is used to call the function after rendering component.
+(To use second way of fetching data)
+
+syntax: 
+useEffect( () => {} , [] )
+- first one is call back function that called after rendering component
+- second is dependency arrray
+
+
+Note: We cant fetch data directly due to **CORS** so use a way to handle it 

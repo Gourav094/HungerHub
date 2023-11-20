@@ -76,3 +76,36 @@
     margin: 10px;
     cursor: pointer;
 }
+
+.filter{
+    padding: 5px 0px;
+    display: flex;
+    gap: 10px;
+}
+
+.search{
+    gap: 10px;
+    display: flex;
+}
+
+.search-box{
+    padding: 5px 15px;
+    border: 0.5px solid #ccc;
+    min-width: 400px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+.filter button{
+    border-radius: 7px;
+    border: none;
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor: pointer; 
+}
+
+.filter button:hover{
+    opacity: 0.8;
+    color:white;
+    background-color: black;
+}
