@@ -92,14 +92,9 @@ setList : use to modify the List variable (re-rendered)
 UseState is used to update UI after changing variables
 
 ## How React works ??
-React uses Reconciliation algorithm(React Fibre)
-- *It updates when something change in UI but how?*
+**Reconciliation algorithm(React Fibre)**
 
-It uses **Virtual DOM**
-
-Virtual DOM is the representation of actual DOM means a **Big Object**  like body 
-
-Actual DOM is the actual code that written using Tags
+React uses **Virtual DOM**
 
 #### Diff algorithm
 - It finds out the difference between two virtual DOM (means previous DOM and updates DOM)
@@ -134,3 +129,25 @@ useEffect( () => {} , [] )
 
 
 Note: We cant fetch data directly due to **CORS** so use a way to handle it 
+
+### Routing
+- Routing to multiple web pages like contact, about,home
+
+install:
+npm i react-router-dom
+
+To route we used:
+- createBrowserRouter -> create app router and pass config.
+- RouteBrowser -> provide routing configuration to app
+
+> UseRouteError -> another hook used for getting more information about error
+
+> Children Routes:
+When we route to our page, we need to stick our header so that we can come to home page -> for that we use children route
+
+> To link diff pages to text we should use *'Link'* tag instead of *'a'* tag
+
+
+### Two types of routing
+- client side routing 
+- server side routing
