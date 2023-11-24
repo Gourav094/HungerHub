@@ -1,20 +1,27 @@
 import Restaurantcard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Body = () => {
     const [List, setList] = useState([])
 
-    const [FilteredList,setFilteredList] = useState([]) 
+    const [FilteredList, setFilteredList] = useState([])
 
     const [Searchtxt, setSearchtxt] = useState([]);
+
+    // This function is used to handle search option using Enter
+    const HandleKeyPress = (e) => {
+        if(e.key === "Enter"){
+            const filterData = List.filter((res) => res.info.name.toLowerCase().includes(Searchtxt.toLowerCase()));
+            setFilteredList(filterData);
+        }
+    }
+
 
     useEffect(() => {
         fetchData();
     }, []);
-
-
 
 
     const fetchData = async () => {
@@ -28,7 +35,7 @@ const Body = () => {
                 resData = each?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             }
         }
-
+        console.log(json);
         setList(resData);
         setFilteredList(resData);
     };
@@ -37,22 +44,26 @@ const Body = () => {
     return (List.length === 0) ? (
         <Shimmer />
     ) : (
-        <div className="Body">
+        <div className="body">
             <div className="filter">
                 <div className="search">
                     <input type="text"
                         className="search-box"
                         value={Searchtxt}
-                        onChange={(e) => { setSearchtxt(e.target.value) }} />
-                    <button className="search-btn"
-                    
-                    onClick={() => { 
+                        onChange={(e) => { 
+                            setSearchtxt(e.target.value) 
+                        }} 
+                        onKeyPress={HandleKeyPress}
+                        />
                         
-                        const filterData = List.filter((res) => res.info.name.toLowerCase().includes(Searchtxt.toLowerCase()));
 
-                        setFilteredList(filterData);
+                    <button className="search-btn"
                         
-                     }}>
+                        onClick={() => {
+                            const filterData = List.filter((res) => res.info.name.toLowerCase().includes(Searchtxt.toLowerCase()));
+
+                            setFilteredList(filterData);
+                        }}>
                         Search
                     </button>
                 </div>
