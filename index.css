@@ -225,7 +225,7 @@ hr{
 .rating #icon::before{
     padding: 5px;
 }
-.rating circle{
+.rating span{
     color: green;
 }
 

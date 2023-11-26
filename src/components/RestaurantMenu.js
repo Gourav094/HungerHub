@@ -1,29 +1,18 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constant";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-    const [resInfo, setresInfo] = useState(null);
     const { resId } = useParams();
 
-    useEffect(() => {
-        fetchData();
-    }, [])
-
-    const fetchData = async () => {
-        const data = await fetch(MENU_API + resId);
-        const jsonData = await data.json();
-        // console.log(jsonData);
-        setresInfo(jsonData);
-    }
+    //created a custom hook to make code cleaner
+    const resInfo = useRestaurantMenu(resId);
 
     if (resInfo === null) {
-        return <Shimmer />
+        return <Shimmer /> 
     }
-
-    const { name, areaName, cuisines, avgRatingString, costForTwoMessage } = resInfo?.data?.cards[0]?.card?.card?.info;
-    const { itemCards } = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    const { name, areaName, cuisines, avgRatingString, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
+    const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     console.log(itemCards)
 
     return (
@@ -40,17 +29,17 @@ const RestaurantMenu = () => {
             <hr></hr>
             <div className="price">
                 <p id="cost">{costForTwoMessage}</p>
-            </div>
+            </div> 
             <hr></hr>
-            {/* <ul>
+            <ul>
                     {itemCards.map((item) => (
 
                         <li key = {item.card.info.id}>
                             {item.card.info.name}
                         </li>
                     ))}
-                </ul> */}
-            <div className="recommended">
+                </ul>
+            {/* <div className="recommended">
                 <div className="main">
 
                     <button className="recommend-btn">
@@ -74,8 +63,8 @@ const RestaurantMenu = () => {
                         
                         <div className="divider"></div>
                     </div>
-                </div>
-            </div>
+                </div>  
+            </div> */}
         </div>
     )
 }
