@@ -11,7 +11,6 @@ const useOnlineStatus = () => {
             setOnlineStatus(true);
         })
     },[])
-    console.log(OnlineStatus)
     //boolean that show online or not
     return OnlineStatus;
 }
