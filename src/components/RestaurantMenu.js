@@ -1,6 +1,7 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
     const { resId } = useParams();
@@ -13,32 +14,53 @@ const RestaurantMenu = () => {
     }
     const { name, areaName, cuisines, avgRatingString, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
     const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-    console.log(itemCards)
+
+    const  categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+        (c) => 
+        c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+
+    )
 
     return (
-        <div className="container">
-            <div className="restaurant-details">
-                <div className="details">
-                    <p id="name">{name}</p>
+        <div className="max-w-3xl my-0 mx-auto font-[arial] pt-5 mb-5">
+            <div className="flex justify-between mb-3 items-center">
+                <div className="text-sm text-gray-500">
+                    <p id="name" className="font-semibold text-black text-lg">{name}</p>
                     <p id="cuisines">{cuisines.join(", ")}</p>
                     <p id="location">{areaName}</p>
 
                 </div>
                 <div id="rating">{avgRatingString} star</div>
             </div>
-            <hr></hr>
+            <hr className="border-b-2 border-dashed "></hr>
             <div className="price">
-                <p id="cost">{costForTwoMessage}</p>
+                <p id="cost" className="font-semibold my-3 text-gray-800">{costForTwoMessage}</p>
             </div> 
-            <hr></hr>
-            <ul>
+            <hr className="mb-10 "></hr>
+            
+            {/* we need to add accodian for all categories*/}
+            {categories.map((category,index) => (
+                <RestaurantCategory key={index} data = {category?.card?.card}/>
+            ))}
+            
+        </div>
+    )
+}
+
+export default RestaurantMenu;
+
+
+
+
+
+{/* <ul>
                     {itemCards.map((item) => (
 
                         <li key = {item.card.info.id}>
                             {item.card.info.name}
                         </li>
                     ))}
-                </ul>
+                </ul> */}
             {/* <div className="recommended">
                 <div className="main">
 
@@ -65,8 +87,3 @@ const RestaurantMenu = () => {
                     </div>
                 </div>  
             </div> */}
-        </div>
-    )
-}
-
-export default RestaurantMenu;
