@@ -53,7 +53,7 @@ const Body = () => {
             <div className="flex py-2 pl-4 mb-3 gap-4 text-[16px]">
                 <div className="search">
                     <input type="text"
-                        className="rounded-3xl text-[14px] min-w-[400px] border-[1px] pl-4 py-[7px] border-solid border-black-100"
+                        className="rounded-3xl text-[14px] min-w-[400px] border-[1px] mr-2 mt-1 px-4 py-[6px] border-solid border-gray-500"
                         value={Searchtxt}
                         onChange={(e) => { 
                             setSearchtxt(e.target.value) 
@@ -61,6 +61,7 @@ const Body = () => {
                         onKeyPress={HandleKeyPress}
                         />
                         
+                    <i className="fa-solid fa-search text-gray-600 text-lg"></i>
 
                 </div>
                 <div>

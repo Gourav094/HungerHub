@@ -11,7 +11,7 @@ const Header = () => {
             <div className="logo">
                 <img className="w-40 ml-2" alt="not rendered" src={LOGO_URL} />
             </div>
-            <div className="nav-items">
+            <div className="nav-items text-md text-gray-700 font-medium">
                 <ul className="flex text-lg p-3">
                     <li className="p-2 m-2"><Link to="/">Home</Link></li>
                     <li className="p-2 m-2"><Link to="/about">About</Link></li>

@@ -1,12 +1,11 @@
 import { CDN_URL } from "../utils/constant";
 
 const ItemList = ({ items }) => {
-    console.log(items)
     return (
         <div>
             {/* show description for each items */}
             {items.map((item) => (
-                <div className="border-b-2 p-2 my-2 border-gray-200 flex justify-between items-center">
+                <div key={items?.card?.info?.id} className="border-b-2 p-2 my-2 border-gray-200 flex justify-between items-center">
                     <div className="mr-4 max-w-[calc(100% - 144px)]">
                         <div className="py-2 flex flex-col text-gray-800">
                             <span className="font-semibold text-gray-700">{item?.card?.info?.name} </span>
