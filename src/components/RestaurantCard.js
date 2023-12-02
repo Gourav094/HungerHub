@@ -12,7 +12,7 @@ const Restaurantcard = (props) => {
     } = resData?.info;
     
     return (
-        <div className="res-card m-[10px] w-60 rounder-2xl p-2 font-[arial] transition duration-200 hover:cursor-pointer hover:scale-105 hover:duration-200">
+        <div className="res-card m-[10px] w-60 rounder-2xl p-2 font-[arial] transition duration-200 hover:cursor-pointer hover:scale-95 hover:duration-200">
             <img className="w-[100%] h-[150px] rounded-2xl" alt="res-logo" src={CDN_URL + cloudinaryImageId} />
             <div className="p-1 ml-1  text-gray-600 text-sm">
 
@@ -27,6 +27,22 @@ const Restaurantcard = (props) => {
             </div>
         </div>
     )
+}
+
+// creating higher order funtion that takes component and return component
+export const PromotedData = (Restaurantcard) => {  
+    //return a component that also return some JSX
+    return (props) => {
+        // console.log(props);
+        return (
+            <div className="group">
+                <label className="rounded-md absolute p-2 m-3 z-20 bg-red-500 text-white text-sm font-medium duration-200 group-hover:opacity-0">
+                    Best seller
+                </label>
+                <Restaurantcard {...props}/>
+            </div>
+        )
+    }
 }
 
 export default Restaurantcard;

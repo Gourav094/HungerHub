@@ -1,4 +1,4 @@
-import Restaurantcard from "./RestaurantCard";
+import Restaurantcard,{PromotedData} from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom"
@@ -10,6 +10,8 @@ const Body = () => {
     const [FilteredList, setFilteredList] = useState([])
 
     const [Searchtxt, setSearchtxt] = useState([]);
+
+    const PromotedRestaurant = PromotedData(Restaurantcard);
 
     // This function is used to handle search option using Enter
     const HandleKeyPress = (e) => {
@@ -39,13 +41,11 @@ const Body = () => {
         setList(resData);
         setFilteredList(resData);
     };
-
     const onlineStatus = useOnlineStatus();
 
     if(onlineStatus === false){
         return <h2>Looks like You are offline! Please connect to internet</h2>
     }
-
     return (List.length === 0) ? (
         <Shimmer />
     ) : (
@@ -88,7 +88,10 @@ const Body = () => {
             <div className="flex flex-wrap">
                 {
                     FilteredList.map(restaurant => (
-                        <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}><Restaurantcard resData={restaurant} /> </Link>
+                        <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
+                            {/* <Restaurantcard resData={restaurant} />  */}
+                            {restaurant.info.avgRating > 4 ? (<PromotedRestaurant resData={restaurant} />) : (<Restaurantcard resData={restaurant} />)}
+                        </Link>
                     )
                     )
                 }
