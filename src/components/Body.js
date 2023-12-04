@@ -1,8 +1,9 @@
 import Restaurantcard,{PromotedData} from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "./UserContext";
 
 const Body = () => {
     const [List, setList] = useState([])
@@ -37,7 +38,7 @@ const Body = () => {
                 resData = each?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             }
         }
-        // console.log(json);
+        console.log(resData);
         setList(resData);
         setFilteredList(resData);
     };
@@ -46,24 +47,28 @@ const Body = () => {
     if(onlineStatus === false){
         return <h2>Looks like You are offline! Please connect to internet</h2>
     }
+
+    const {loggedInUser,setUserName} = useContext(UserContext);
+
     return (List.length === 0) ? (
         <Shimmer />
     ) : (
-        <div className="body font-sans max-w-[1300px] my-0 mx-auto">
+        
+        <div className="body font-sans max-w-6xl my-0 mx-auto">
             <div className="flex py-2 pl-4 mb-3 gap-4 text-[16px]">
-                <div className="search">
+                <div className="search rounded-3xl border-[1px] border-solid border-gray-500 truncate">
                     <input type="text"
-                        className="rounded-3xl text-[14px] min-w-[400px] border-[1px] mr-2 mt-1 px-4 py-[6px] border-solid border-gray-500"
+                        className="text-[14px] min-w-[380px] px-4 py-[5px] focus:outline-none"
+                        placeholder={"Search"}
                         value={Searchtxt}
                         onChange={(e) => { 
                             setSearchtxt(e.target.value) 
                         }} 
                         onKeyPress={HandleKeyPress}
                         />
-                        
-                    <i className="fa-solid fa-search text-gray-600 text-lg"></i>
-
+                    <i className="fa-solid fa-search text-gray-600 text-lg py-2 mr-2"></i>
                 </div>
+
                 <div>
                 <button className="font-semibold cursor-pointer py-[5px] px-3 rounded-lg border-2 border-black-100 border-solid hover:bg-black hover:opacity-75 hover:text-white"
                         
@@ -85,16 +90,34 @@ const Body = () => {
                     }}
                 >Top Rated Restaurant</button>
                 </div>
+                <div className="search">
+                    <span className="font-semibold">UserName : </span>
+                    <input type="text"
+                        className="rounded-3xl text-[14px] border-[1px] mr-2 mt-1 px-3 py-[5px] border-solid border-gray-500"
+                        value={loggedInUser}
+                        maxLength={"18"}
+                        onChange={(e) => { 
+                            setUserName(e.target.value) 
+                        }} 
+                        />  
+                </div>
             </div>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap gap-4 mx-4 pl-3 my-4">
                 {
                     FilteredList.map(restaurant => (
                         <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
                             {/* <Restaurantcard resData={restaurant} />  */}
                             {restaurant.info.avgRating > 4 ? (<PromotedRestaurant resData={restaurant} />) : (<Restaurantcard resData={restaurant} />)}
                         </Link>
-                    )
-                    )
+                    ))
+                }
+                {
+                    FilteredList.map(restaurant => (
+                        <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
+                            {/* <Restaurantcard resData={restaurant} />  */}
+                            {restaurant.info.avgRating > 4 ? (<PromotedRestaurant resData={restaurant} />) : (<Restaurantcard resData={restaurant} />)}
+                        </Link>
+                    ))
                 }
             </div>
         </div>
