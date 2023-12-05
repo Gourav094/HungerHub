@@ -15,7 +15,7 @@ const RestaurantMenu = () => {
     if (resInfo === null) {
         return <Shimmer /> 
     }
-    const { name, areaName, cuisines, avgRatingString, costForTwoMessage,sla } = resInfo?.cards[0]?.card?.card?.info;
+    const { name, areaName, cuisines, avgRatingString, costForTwoMessage,sla ,feeDetails} = resInfo?.cards[0]?.card?.card?.info;
     console.log(resInfo?.cards[0]?.card?.card?.info)
     const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
@@ -32,6 +32,8 @@ const RestaurantMenu = () => {
                     <p id="name" className="font-semibold text-gray-800 text-lg">{name}</p>
                     <p id="cuisines">{cuisines.join(", ")}</p>
                     <p id="location">{areaName}</p>
+                    <p id="location" className="mt-2"><i className="fa-solid fa-person-biking mr-1"></i>
+                        {feeDetails.message}</p>
 
                 </div>
                 <div id="rating" className="text-green-600 text-sm border p-1 px-2 rounded-md shadow cursor-pointer">{avgRatingString} 

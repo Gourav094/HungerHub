@@ -14,9 +14,11 @@ const Header = () => {
 
     return (
 
-        <div className="flex mb-3 justify-between place-items-center shadow-md">
+        <div className="flex mb-6 justify-between place-items-center shadow-md">
             <div className="logo">
+                <Link to={"/"}>
                 <img className="w-40 ml-20" alt="not rendered" src={LOGO_URL} />
+                </Link>
             </div>
             <div className="nav-items text-md text-gray-700 font-medium mr-20">
                 <ul className="flex text-lg p-3">

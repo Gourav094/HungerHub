@@ -10,7 +10,9 @@ const Body = () => {
 
     const [FilteredList, setFilteredList] = useState([])
 
-    const [Searchtxt, setSearchtxt] = useState([]);
+    const [title,settitle] = useState();
+
+    const [Searchtxt, setSearchtxt] = useState("");
 
     const PromotedRestaurant = PromotedData(Restaurantcard);
 
@@ -32,15 +34,16 @@ const Body = () => {
 
         const json = await data.json();
 
+        // TO find restaurant data from all cards 
         let resData = [];
         for (const each of json?.data?.cards) {
             if (each?.card?.card?.gridElements?.infoWithStyle?.restaurants) {
                 resData = each?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             }
         }
-        console.log(resData);
         setList(resData);
         setFilteredList(resData);
+        settitle(json.data.cards[3].card.card.title)
     };
     const onlineStatus = useOnlineStatus();
 
@@ -55,7 +58,7 @@ const Body = () => {
     ) : (
         
         <div className="body font-sans max-w-6xl my-0 mx-auto">
-            <div className="flex py-2 pl-4 mb-3 gap-4 text-[16px]">
+            <div className="flex py-2 pl-4 mb-5 gap-4 text-[16px]">
                 <div className="search rounded-3xl border-[1px] border-solid border-gray-500 truncate">
                     <input type="text"
                         className="text-[14px] min-w-[380px] px-4 py-[5px] focus:outline-none"
@@ -74,7 +77,6 @@ const Body = () => {
                         
                         onClick={() => {
                             const filterData = List.filter((res) => res.info.name.toLowerCase().includes(Searchtxt.toLowerCase()));
-
                             setFilteredList(filterData);
                         }}>
                         Search
@@ -102,7 +104,10 @@ const Body = () => {
                         />  
                 </div>
             </div>
-            <div className="flex flex-wrap gap-4 mx-4 pl-3 my-4">
+            <div className="my-4 pl-10 font-bold text-2xl">
+                <h2>{title}</h2>
+            </div>
+            <div className="flex flex-wrap gap-4 mx-4 pl-3 my-5">
                 {
                     FilteredList.map(restaurant => (
                         <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
