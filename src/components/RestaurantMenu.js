@@ -11,9 +11,9 @@ const RestaurantMenu = () => {
     const resInfo = useRestaurantMenu(resId);
 
     const [showIndex,setshowIndex] = useState(0);
-
+    console.log(resInfo)
     if (resInfo === null) {
-        return <Shimmer /> 
+        return;
     }
     const { name, areaName, cuisines, avgRatingString, costForTwoMessage,sla ,feeDetails} = resInfo?.cards[0]?.card?.card?.info;
     console.log(resInfo?.cards[0]?.card?.card?.info)

@@ -151,3 +151,12 @@ When we route to our page, we need to stick our header so that we can come to ho
 ### Two types of routing
 - client side routing 
 - server side routing
+
+
+### Redux Toolkit
+- install @reduxjs/toolkit and react-redux
+- Build our store
+- connect store to our app
+- Slice(cart)
+- dispatch an action
+- Selector
