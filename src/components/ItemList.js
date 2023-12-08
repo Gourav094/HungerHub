@@ -41,9 +41,9 @@ const ItemList = ({ items }) => {
                         <div className="absolute inset-x-0 bottom-0 text-center ">
 
                             <button className="bg-white font-semibold shadow-lg rounded-md text-xs text-green-500 p-2 w-3/4" >
-                                    <i className="fa-solid fa-minus pr-2" onClick={() => {handleDeleteItem(item)}}></i>
+                                    <i className="fa-solid fa-minus pr-3" onClick={() => {handleDeleteItem(item)}}></i>
                                     {countOccurence(item?.card?.info?.id) === 0 ? ("Add"):countOccurence(item?.card?.info?.id)}
-                                    <i className="fa-solid fa-plus pl-2" onClick={() => {handleAddItem(item)}}></i>
+                                    <i className="fa-solid fa-plus pl-3" onClick={() => {handleAddItem(item)}}></i>
                             </button>
                             
                         </div>

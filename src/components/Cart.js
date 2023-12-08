@@ -23,14 +23,18 @@ const Cart = () => {
             </button>
         </div>
     ):(
-        <div className="font-sans m-4 p-4 ">
-            {/* <div className="w-6/12 m-auto text-center">
-                <button className=" text-center p-2 m-2 rounded-lg text-white bg-black" onClick={handleClearCart}>Clear cart</button>
-            </div> */}
-            <div className="w-6/12 m-auto">
-                <ItemList items = {cartItems}/>
-            </div>
+        <div className="bg-gray-100 h-screen">
+            <div className=" w-6/12 my-0 mx-auto">
+                <div className="py-10">
+                    <button className="border bg-orange-400 py-1 px-2 rounded text-white" onClick={handleClearCart}>Clear Cart</button>
+                </div>
+                <div className="bg-white  min-h-[60vh] shadow">
+                    <div className="py-4 px-6">
+                        <ItemList items = {cartItems}/>
+                    </div>
+                </div>    
+            </div>            
         </div>
     )
 }
-export default Cart;
+export default Cart;                

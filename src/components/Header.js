@@ -17,7 +17,7 @@ const Header = () => {
 
     return (
 
-        <div className="flex mb-6 justify-between place-items-center shadow-md ">
+        <div className="flex justify-between place-items-center shadow-md ">
             <div className="logo">
                 <Link to={"/"}>
                 <img className="w-40 ml-20" alt="not rendered" src={LOGO_URL} />
