@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import User from "./User";
 import UserClass from "./UserClass";
+import banner from "../Images/about-banner.jpg"
 
 const About = () => {
     return (
         <div>
-            <div style={{ backgroundImage: "url('https://careers.swiggy.com/assets/img/banner3.jpg')", width: "100%", height: '55vh' }} className="bg-cover bg-no-repeat "></div>
+            <div style={{ backgroundImage: `url(${banner})`, width: "100%", height: '55vh' }} className="bg-cover bg-no-repeat "></div>
+            
             <div className="max-w-6xl my-0 text-center mx-auto pb-20">
                 {/* <img src="https://careers.swiggy.com/assets/img/banner3.jpg" /> */}
 
@@ -22,7 +25,7 @@ const About = () => {
             <div className="max-w-6xl my-0 py-14 px-6 mx-auto">
                 <div className="mx-12 py-8 px-12 text-center">
                     <h3 className="text-4xl font-semibold text-gray-800 mb-11 tracking-wider">What’s In Store For The Future?</h3>
-                    <h4 className="text-lg tracking-wide">Swiggy has grand plans to be India’s most loved hyperlocal player. It aims to be the most accessible platform on the network - reimagining the meaning of convenience in the country through a variety of service offerings.</h4>
+                    <h4 className="text-lg tracking-wide">HungerHub has grand plans to be India’s most loved hyperlocal player. It aims to be the most accessible platform on the network - reimagining the meaning of convenience in the country through a variety of service offerings.</h4>
                 </div>
             </div>
             <hr className="mb-16 border-1"/>
@@ -51,7 +54,7 @@ const About = () => {
                 <div className="pb-10">
                     <i className="fa-brands fa-instagram text-2xl text-gray-100 pr-10 cursor-pointer"></i>
                     <i className="fa-brands fa-linkedin text-2xl text-gray-100 pr-10 cursor-pointer" ></i>
-                    <i className="fa-brands fa-twitter text-2xl text-gray-100 pr-10 cursor-pointer"></i>
+                    <Link target="_blank" to={"https://twitter.com/Gouravgarg094"}><i className="fa-brands fa-twitter text-2xl text-gray-100 pr-10 cursor-pointer"></i></Link>
                     <i className="fa-brands fa-facebook text-2xl text-gray-100 pr-10 cursor-pointer"></i>
                     <i className="fa-brands fa-whatsapp text-2xl text-gray-100 pr-10 cursor-pointer"></i>
                 </div>

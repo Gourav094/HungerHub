@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom"
+import swal from "sweetalert"
+
 const Contact = () => {
     return (
       <div className="bg-cyan-700 px-4 min-h-[100vh]">
@@ -10,9 +13,9 @@ const Contact = () => {
               <div className="flex">
                 <div className="w-1/3">
                     <ul className="py-5 pl-5 bg-gray-200  font-semibold shadow text-gray-600">
-                      <li className="cursor-pointer py-6 px-10 hover:bg-white">Help with orders</li>
-                      <li className="cursor-pointer py-6 px-10 hover:bg-white">General issues</li>
-                      <li className="cursor-pointer py-6 px-10 hover:bg-white">Partner Onboarding</li>
+                      <li className="cursor-pointer py-6 px-10 hover:bg-white">Issue with live orders</li>
+                      <li className="cursor-pointer py-6 px-10 hover:bg-white">General issues </li>
+                      <li className="cursor-pointer py-6 px-10 hover:bg-white">Returns and refunds</li>
                       <li className="cursor-pointer py-6 px-10 hover:bg-white">Legal, Terms & Condition</li>
                       <li className="cursor-pointer py-6 px-10 hover:bg-white">FAQs</li>
                     </ul>
@@ -41,7 +44,11 @@ const Contact = () => {
                               placeholder="Type text"
                               />  
                     </div>
-                    <button className="mt-6 border py-1 px-3 bg-orange-500 text-white rounded-md ml-40" >Submit</button>
+                    <button className="mt-6 border py-1 px-3 bg-orange-500 text-white rounded-md ml-40" 
+                      onClick={() => {
+                        swal('Thankyou for choosing us!','Stay Tuned :)')
+                      }}
+                    >Submit</button>
                 </div>
               </div>
             </div>

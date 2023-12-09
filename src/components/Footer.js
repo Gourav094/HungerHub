@@ -35,7 +35,6 @@ const Footer = () => {
                         <li className="py-2">Hyderabad</li>
                         <li className="py-2">Chandigarh</li>
                         <li className="py-2">Delhi</li>
-                        <li className="py-2">Mumbai</li>
                     </ul>
                 </div>
             </div>
