@@ -37,6 +37,7 @@ const Header = () => {
                     <li className="p-2 m-2 transition hover:text-orange-400"><Link to="/">Home</Link></li>
                     <li className="p-2 m-2 transition hover:text-orange-400"><Link to="/about">About</Link></li>
                     <li className="p-2 m-2 transition hover:text-orange-400"><Link to="/contact">Contact us</Link></li>
+                    <li className="p-2 m-2 transition hover:text-orange-400"><Link to="/contact">Grocery</Link></li>
 
                     <li className="p-2 m-2 transition hover:text-orange-400"><Link to="/cart">
                         Cart({cartItems.length})

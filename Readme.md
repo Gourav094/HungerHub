@@ -160,3 +160,21 @@ When we route to our page, we need to stick our header so that we can come to ho
 - Slice(cart)
 - dispatch an action
 - Selector
+
+
+### Types of testing (developer)
+- unit testing
+- Intergration testing
+- end to end testing
+
+### Setting up testing in our app
+- installing React testing library
+- install jest
+- installed babel dependency
+- config babel 
+- Configure parcel config file to disable default parcel babel transpilation
+- jest configuration : npx jest --init
+- install jsdom library
+- install @babel/preset-react -to work JSX in test cases 
+- install @babel/preset-react inside my babel
+- install @testing-library/jest-dom

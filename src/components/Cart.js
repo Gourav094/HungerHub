@@ -36,11 +36,12 @@ const Cart = () => {
         <div className="bg-gray-100 h-fit">
             <div className="py-10 text-center">
                 <h1 className="pb-4 font-semibold text-xl tracking-wider">Free Shipping on order above Rs99</h1>
-                <button className="border bg-orange-400 pb-1 px-2 rounded text-white" onClick={handleClearCart}>Clear Cart</button>
+                
             </div>
             <div className="max-w-[1100px] my-0 mx-auto flex gap-10">
                 <div className="bg-white w-3/5 min-h-[60vh] shadow py-4 px-6">
                     <ItemList items = {cartItems}/>
+                    <button className="border mt-2 ml-64 bg-orange-400 py-1 px-2 rounded text-white" onClick={handleClearCart}>Clear Cart</button>
                 </div>    
                 <div className="bg-white w-1/3 h-fit shadow py-4 px-8 text-gray-600">
                     <h1 className="font-semibold text-2xl py-4 text-gray-950">Summary</h1>
