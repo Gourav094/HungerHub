@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Learn React ",
   "scripts": {
-    "test": "jest",
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -34,10 +35,13 @@
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "jest-transform-stub": "^2.0.0",
     "parcel": "^2.10.2",
     "postcss": "^8.4.31",
     "process": "^0.11.10",
     "tailwindcss": "^3.3.5"
   },
-  "browserslist": []
+  "browserslist": [
+    "last 10 chrome version"
+  ]
 }

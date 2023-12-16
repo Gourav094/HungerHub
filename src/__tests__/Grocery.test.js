@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
 import Grocery from "../components/Grocery"
-import { renderMatches } from "react-router-dom"
 
 describe("Grocery page test",() => {
     it("should load grocery component",() => {

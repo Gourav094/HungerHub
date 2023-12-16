@@ -64,6 +64,7 @@ const Body = () => {
                         <input type="text"
                             className="text-[14px] min-w-[380px] px-4 py-[5px] focus:outline-none"
                             placeholder={"Search"}
+                            data-testid = "searchInput"
                             value={Searchtxt}
                             onChange={(e) => { 
                                 setSearchtxt(e.target.value) 
