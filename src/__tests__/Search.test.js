@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react"
+import { fireEvent, render, screen} from "@testing-library/react"
 import Body from "../components/Body"
 import { BrowserRouter } from "react-router-dom"
 import MockResList from "../__tests__/mocks/MockResList.json"
@@ -14,18 +14,18 @@ global.fetch = jest.fn(() => {
   
 describe("",() =>{
 
-    beforeAll(() => {
-        console.log("Before testcase")
-    })
-    beforeEach(() => {
-        console.log("Before Each")
-    })
-    afterAll(() => {
-        console.log("After testcases") 
-    })
-    afterEach(() => {
-        console.log("After each")
-    })
+    // beforeAll(() => {
+    //     console.log("Before testcase")
+    // })
+    // beforeEach(() => {
+    //     console.log("Before Each")
+    // })
+    // afterAll(() => {
+    //     console.log("After testcases") 
+    // })
+    // afterEach(() => {
+    //     console.log("After each")
+    // })
 
     it("Should render body component with search feature",async() => {
         await act(async() => 
@@ -81,4 +81,15 @@ describe("",() =>{
 
         expect(searchCards.length).toBe(6) 
     })
+
+    it("should render Username",async() => {
+        await act(async() => 
+            render(
+            <BrowserRouter>
+                <Body/>
+            </BrowserRouter>
+        ))
+        const userInput = screen.getByTestId("userInput")
+        expect(userInput.value).toBe("Gourav")  
+    }) 
 })

@@ -24,7 +24,7 @@ const ItemList = ({ items }) => {
         <div>
             {/* show description for each items */}
             {items.map((item,index) => (
-                <div key={index} className="border-b-2 p-2 my-2 border-gray-200 flex justify-between items-center">
+                <div data-testid = "foodItems" key={index} className="border-b-2 p-2 my-2 border-gray-200 flex justify-between items-center">
                     <div className="mr-4 max-w-[calc(100% - 144px)]">
                         <div className="py-2 flex flex-col text-gray-800">
                             <span className="font-semibold text-gray-700">{item?.card?.info?.name} </span>
@@ -40,10 +40,10 @@ const ItemList = ({ items }) => {
 
                         <div className="absolute inset-x-0 bottom-0 text-center ">
 
-                            <button className="bg-white font-semibold shadow-lg rounded-md text-xs text-green-500 p-2 w-3/4" >
-                                    <i className="fa-solid fa-minus pr-3" onClick={() => {handleDeleteItem(item)}}></i>
+                            <button  className="bg-white font-semibold shadow-lg rounded-md text-xs text-green-500 p-2 w-3/4" >
+                                    <i data-testid = "substractButton" className="fa-solid fa-minus pr-3" onClick={() => {handleDeleteItem(item)}}></i>
                                     {countOccurence(item?.card?.info?.id) === 0 ? ("Add"):countOccurence(item?.card?.info?.id)}
-                                    <i className="fa-solid fa-plus pl-3" onClick={() => {handleAddItem(item)}}></i>
+                                    <i data-testid = "addButton" className="fa-solid fa-plus pl-3" onClick={() => {handleAddItem(item)}}></i>
                             </button>
                             
                         </div>

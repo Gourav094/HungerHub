@@ -59,3 +59,14 @@ it("should change Login button to logout on click", () => {
     const logoutButton = screen.getByRole("button");
     expect(logoutButton).toBeInTheDocument();
 })
+
+it("Should check users online status",() => {
+    render(
+        <BrowserRouter>
+            <Provider store={appStore}>
+                <Header/>
+            </Provider>
+        </BrowserRouter>
+    );
+    expect(screen.getByText("Status: online")).toBeInTheDocument()
+})

@@ -31,7 +31,7 @@ const Body = () => {
 
 
     const fetchData = async () => {
-        const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.6871407&lng=76.6646509&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.6871407&lng=76.6646509&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
         const json = await data.json();
 
@@ -97,6 +97,7 @@ const Body = () => {
                     <div className="search">
                         <span className="font-semibold">UserName : </span>
                         <input type="text"
+                        data-testid = "userInput"
                             className="rounded-3xl text-[14px] border-[1px] mr-2 mt-1 px-3 py-[5px] border-solid border-gray-500"
                             value={loggedInUser}
                             maxLength={"18"}

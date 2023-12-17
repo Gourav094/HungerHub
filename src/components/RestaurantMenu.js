@@ -10,12 +10,12 @@ const RestaurantMenu = () => {
     const resInfo = useRestaurantMenu(resId);
 
     const [showIndex,setshowIndex] = useState(0);
-    console.log(resInfo)
+    // console.log(resInfo)
     if (resInfo === null) {
         return;
     }
     const { name, areaName, cuisines, avgRatingString, costForTwoMessage,sla ,feeDetails} = resInfo?.cards[0]?.card?.card?.info;
-    console.log(resInfo?.cards[0]?.card?.card?.info)
+    // console.log(resInfo?.cards[0]?.card?.card?.info)
     const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
     const  categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
