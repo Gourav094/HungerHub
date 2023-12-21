@@ -42,7 +42,7 @@ const ItemList = ({ items }) => {
 
                             <button  className="bg-white font-semibold shadow-lg rounded-md text-xs text-green-500 p-2 w-3/4" >
                                     <i data-testid = "substractButton" className="fa-solid fa-minus pr-3" onClick={() => {handleDeleteItem(item)}}></i>
-                                    {countOccurence(item?.card?.info?.id) === 0 ? ("Add"):countOccurence(item?.card?.info?.id)}
+                                    {countOccurence(item?.card?.info?.id) === 0 ? ("Add"):<span className="mx-2">{countOccurence(item?.card?.info?.id)}</span>}
                                     <i data-testid = "addButton" className="fa-solid fa-plus pl-3" onClick={() => {handleAddItem(item)}}></i>
                             </button>
                             

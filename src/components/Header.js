@@ -8,13 +8,17 @@ import swal from "sweetalert";
 const Header = () => {
     const [btnName, setbtnName] = useState("Login");
 
-    const [Hovered, setHovered] = useState("false");
+    const [Hovered, setHovered] = useState(false);
 
     const onlineStatus = useOnlineStatus();
 
     const { loggedInUser } = useContext(UserContext);
 
     const cartItems = useSelector((store) => store.cart.items)
+    const [Menu,setMenu] = useState(false)
+    const handleMenu = () => {
+        setMenu(!Menu)
+    }
 
     const handleClick = () => {
         if (btnName === "Login" && loggedInUser === '') {
@@ -26,25 +30,28 @@ const Header = () => {
     }
     return (
 
-        <div className="flex justify-between place-items-center shadow-md py-1">
-            <div className="logo">
-                <Link to={"/"}>
-                    <img className="w-40 ml-20" alt="not rendered" src={logo} />
-                </Link>
+        <div className="md:flex md:justify-between md:place-items-center shadow-md py-1 max-w-full">
+            <div className="logo flex justify-between items-center">
+                <span>
+                    <Link to={"/"}>
+                        <img className="w-32 h-18 md:ml-20" alt="not rendered" src={logo} />
+                    </Link>
+                </span>
+                <span className="cursor-pointer text-xl md:hidden pr-6">
+                    <i className="fa-solid fa-bars" onClick={handleMenu}></i>
+                </span>
             </div>
-            <div className="nav-items text-md text-gray-700 font-medium mr-20">
-                <ul className="flex text-lg p-3">
+            <div className={`text-md text-gray-800 font-medium md:mr-20 overflow-hidden md:opacity-100 md:pointer-events-auto ${Menu === true ? 'opacity-100 pointer-events-auto':'opacity-0 pointer-events-none'}`}>
+                <ul className="md:flex text-lg p-3 md:static z-[2] md:z-auto absolute bg-white w-full transition-all ease-in duration-700">
                     <li className="p-2 m-2 transition hover:text-orange-400"><Link to="/">Home</Link></li>
                     <li className="p-2 m-2 transition hover:text-orange-400"><Link to="/about">About</Link></li>
                     <li className="p-2 m-2 transition hover:text-orange-400"><Link to="/contact">Contact us</Link></li>
-                    <li className="p-2 m-2 transition hover:text-orange-400"><Link to="/contact">Grocery</Link></li>
-
                     <li className="p-2 m-2 transition hover:text-orange-400"><Link to="/cart">
                         Cart({cartItems.length})
                     </Link></li>
 
                     <li className="p-2 m-2">Status: {onlineStatus ? " online" : "offline"}</li>
-                    <button className="login"
+                    <button className="login p-2 m-2 transition hover:text-orange-400"
                         onClick={() => {
                             handleClick()
                         }}
@@ -59,17 +66,20 @@ const Header = () => {
                     {btnName === "Login" ?btnName :
                         (loggedInUser === '' ? 'Logout' : loggedInUser)
                     }</button>
+                    <div>
                     {Hovered === "true" && btnName !== "Login" && (
-                        <div>
-                            <li className="focus:outline-none mt-11 -ml-24 absolute cursor-pointer shadow-lg py-2 px-3 bg-gray-300 text-white" onClick={() => {
+                        <div className="focus:outline-none mt-20 -ml-24 min-h-[30px] absolute cursor-pointer shadow py-2 px-3 bg-white text-gray-500 text-sm">
+                            <li  onClick={() => {
                                 setbtnName("Login")
                                 setHovered("false")
                             }}
                             >
                                 click to Logout
                             </li>
+                            
                         </div>
                     )}
+                    </div>
                 </ul>
             </div>
         </div>

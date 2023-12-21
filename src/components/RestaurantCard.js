@@ -37,7 +37,7 @@ export const PromotedData = (Restaurantcard) => {
         // console.log(props);
         return (
             <div className="group">
-                <label className="rounded-md absolute p-2 m-3 z-20 bg-red-500 text-white text-sm font-medium duration-200 group-hover:opacity-0">
+                <label className="rounded-md absolute p-2 m-3 z-1 bg-red-500 text-white text-sm font-medium duration-200 group-hover:opacity-0">
                     Best seller
                 </label>
                 <Restaurantcard {...props}/>

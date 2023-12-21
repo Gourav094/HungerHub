@@ -15,7 +15,7 @@ const RestaurantMenu = () => {
         return;
     }
     const { name, areaName, cuisines, avgRatingString, costForTwoMessage,sla ,feeDetails} = resInfo?.cards[0]?.card?.card?.info;
-    // console.log(resInfo?.cards[0]?.card?.card?.info)
+    console.log(resInfo?.cards[0]?.card?.card?.info)
     const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
     const  categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -26,7 +26,7 @@ const RestaurantMenu = () => {
 
     return (
         <div className="max-w-3xl my-0 mx-auto font-[arial] pt-5 mb-5">
-            <div className="flex justify-between mb-3 items-center">
+            <div className="flex justify-between mb-3 items-center px-3">
                 <div className="text-sm text-gray-500">
                     <p id="name" className="font-semibold text-gray-800 text-lg">{name}</p>
                     <p id="cuisines">{cuisines.join(", ")}</p>
@@ -42,7 +42,7 @@ const RestaurantMenu = () => {
             
             <hr className="border-b-2 border-dashed "></hr>
 
-            <div className="price flex my-4 gap-6">
+            <div className="price flex my-4 gap-6 px-3">
                 <p className="font-semibold text-gray-700">
                     <i className="fa-solid fa-circle-half-stroke mr-1"></i>
                     {sla.deliveryTime} MINS</p>

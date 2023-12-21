@@ -1,9 +1,9 @@
 import { LOGO_URL } from "../utils/constant";
 const Footer = () => {
-    return (
-        <div className="bg-gray-950">
-            <div className="justify-center text-gray-400 py-10 pl-20 flex gap-36">
-                <h1 className="text-2xl pt-4">HungerHub</h1>
+    return ( 
+        <div className="bg-gray-950 max-w-full">
+            <div className="lg:flex justify-center text-gray-400 py-10 pl-20 gap-36">
+                <h1 className="text-2xl pt-4 pb-3">HungerHub</h1>
                 <div>
                     <ul>
                         <li className="font-bold text-md py-2 text-gray-200">Company</li>

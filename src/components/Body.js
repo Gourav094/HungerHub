@@ -42,6 +42,7 @@ const Body = () => {
                 resData = each?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             }
         }
+        console.log(json)
         setList(resData);
         setFilteredList(resData);
         settitle(json.data.cards[3].card.card.title)
@@ -51,9 +52,8 @@ const Body = () => {
     if(onlineStatus === false){
         return <h2>Looks like You are offline! Please connect to internet</h2>
     }
-
     const {loggedInUser,setUserName} = useContext(UserContext);
-
+    
     return (List.length === 0) ? (
         <Shimmer />
     ) : (
@@ -86,7 +86,7 @@ const Body = () => {
                     </div>
                     <div>
                     <button
-                        className="font-semibold cursor-pointer py-[5px] px-4 rounded-lg border-2 border-black-100 border-solid hover:bg-black hover:opacity-75 hover:text-white"
+                        className="hidden md:block font-semibold cursor-pointer py-[5px] px-4 rounded-lg border-2 border-black-100 border-solid hover:bg-black hover:opacity-75 hover:text-white"
                         onClick={() => {
                             const filterData = List.filter((res) => res.info.avgRating > 4);
 
@@ -94,7 +94,7 @@ const Body = () => {
                         }}
                     >Top Rated Restaurant</button>
                     </div>
-                    <div className="search">
+                    <div className="search hidden md:block">
                         <span className="font-semibold">UserName : </span>
                         <input type="text"
                         data-testid = "userInput"
@@ -107,10 +107,10 @@ const Body = () => {
                             />  
                     </div>
                 </div>
-                <div className="my-4 pl-10 font-bold text-2xl">
+                <div className="my-4 pl-10  font-bold text-2xl">
                     <h2>{title}</h2>
                 </div>
-                <div className="flex flex-wrap gap-4 mx-4 pl-3 my-5">
+                <div className="flex flex-wrap gap-4 md:mx-4 mx-12 items-center pl-3 my-5">
                     {
                         FilteredList.map(restaurant => (
                             <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
