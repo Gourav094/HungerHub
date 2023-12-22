@@ -78,6 +78,7 @@ const Body = () => {
                             
                             onClick={() => {
                                 const filterData = List.filter((res) => res.info.name.toLowerCase().includes(Searchtxt.toLowerCase()));
+                
                                 setFilteredList(filterData);
                             }}>
                             Search
@@ -107,14 +108,14 @@ const Body = () => {
                     </div>
                 </div>
                 <div className="my-4 pl-10  font-bold text-2xl">
-                    <h2>{title}</h2>
+                    <h2>{FilteredList.length === 0 ? ("Oops! No Restaurant found"):title}</h2>
                 </div>
                 <div className="flex flex-wrap gap-4 md:mx-4 mx-12 items-center pl-3 my-5">
                     {
                         FilteredList.map(restaurant => (
                             <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
                                 {/* <Restaurantcard resData={restaurant} />  */}
-                                {restaurant.info.avgRating > 4 ? (<PromotedRestaurant resData={restaurant} />) : (<Restaurantcard resData={restaurant} />)}
+                                {restaurant.info.avgRating >= 4.5 ? (<PromotedRestaurant resData={restaurant} />) : (<Restaurantcard resData={restaurant} />)}
                             </Link>
                         ))
                     }
@@ -122,7 +123,7 @@ const Body = () => {
                         FilteredList.map(restaurant => (
                             <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
                                 {/* <Restaurantcard resData={restaurant} />  */}
-                                {restaurant.info.avgRating > 4 ? (<PromotedRestaurant resData={restaurant} />) : (<Restaurantcard resData={restaurant} />)}
+                                {restaurant.info.avgRating >= 4.4 ? (<PromotedRestaurant resData={restaurant} />) : (<Restaurantcard resData={restaurant} />)}
                             </Link>
                         ))
                     }
