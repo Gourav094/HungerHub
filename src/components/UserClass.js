@@ -9,24 +9,24 @@ class UserClass extends React.Component{
                 location:"dummy",
             }
         }
-        console.log("constructor");
+        // console.log("constructor");
     }
     async componentDidMount(){
         const data = await fetch("https://api.github.com/users/gourav094");
         const json = await data.json();
-        console.log(json);
+        // console.log(json);
         this.setState({
             userInfo:json,
         })
-        console.log("component did Mount");
+        // console.log("component did Mount");
         debugger;
     }
     componentDidUpdate(){
-        console.log("component did update");
+        // console.log("component did update");
     }
     render(){
         const {name,location,avatar_url,id} = this.state.userInfo;
-        console.log("render");
+        // console.log("render");
 
         return(
             <div className="user-card">

@@ -31,17 +31,18 @@ const Body = () => {
 
 
     const fetchData = async () => {
-        const data = await fetch("https://kind-puce-bull-tie.cyclic.app/api/proxy/swiggy/dapi/restaurants/list/v5?lat=30.6871407&lng=76.6646509&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        // const data = await fetch("https://kind-puce-bull-tie.cyclic.app/api/proxy/swiggy/dapi/restaurants/list/v5?lat=30.6871407&lng=76.6646509&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D30.6871407%26lng%3D76.6646509%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING");
 
         const json = await data.json();
         // TO find restaurant data from all cards 
+        console.log(json)
         let resData = [];
         for (const each of json?.data?.cards) {
             if (each?.card?.card?.gridElements?.infoWithStyle?.restaurants) {
                 resData = each?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             }
         }
-        console.log(json)
         setList(resData);
         setFilteredList(resData);
         settitle(json.data.cards[3].card.card.title)

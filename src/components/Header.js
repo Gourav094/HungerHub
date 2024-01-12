@@ -68,7 +68,7 @@ const Header = () => {
                     }</button>
                     <div>
                     {Hovered === "true" && btnName !== "Login" && (
-                        <div className="focus:outline-none mt-20 -ml-24 min-h-[30px] absolute cursor-pointer shadow py-2 px-3 bg-white text-gray-500 text-sm">
+                        <div className="focus:outline-none md:mt-20 md:-ml-24 min-h-[30px] absolute cursor-pointer shadow py-2 px-3 bg-white text-gray-500 text-sm">
                             <li  onClick={() => {
                                 setbtnName("Login")
                                 setHovered("false")

@@ -14,9 +14,9 @@ const RestaurantMenu = () => {
     if (resInfo === null) {
         return;
     }
+    // console.log(resInfo?.cards[0]?.card?.card?.info)
     const { name, areaName, cuisines, avgRatingString, costForTwoMessage,sla ,feeDetails} = resInfo?.cards[0]?.card?.card?.info;
-    console.log(resInfo?.cards[0]?.card?.card?.info)
-    const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    // const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
     const  categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
         (c) => 
