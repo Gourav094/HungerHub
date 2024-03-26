@@ -14,15 +14,16 @@ const RestaurantMenu = () => {
     if (resInfo === null) {
         return;
     }
-    // console.log(resInfo?.cards[0]?.card?.card?.info)
-    const { name, areaName, cuisines, avgRatingString, costForTwoMessage,sla ,feeDetails} = resInfo?.cards[0]?.card?.card?.info;
-    // const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    const { name, areaName, cuisines, avgRatingString, costForTwoMessage,sla ,feeDetails} = resInfo?.cards[2]?.card?.card?.info;
 
-    const  categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    const  categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
         (c) => 
         c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
 
     )
+    if(!categories){
+        return
+    }
 
     return (
         <div className="max-w-3xl my-0 mx-auto font-[arial] pt-5 mb-5">

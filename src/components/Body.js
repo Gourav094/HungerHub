@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "./UserContext";
 import Footer from "./Footer";
-
+import RestaurantDummyData from "../data/restaurant_data.json"
 const Body = () => {
     const [List, setList] = useState([])
 
@@ -32,20 +32,20 @@ const Body = () => {
 
     const fetchData = async () => {
         // const data = await fetch("https://kind-puce-bull-tie.cyclic.app/api/proxy/swiggy/dapi/restaurants/list/v5?lat=30.6871407&lng=76.6646509&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const data = await fetch("https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D30.6871407%26lng%3D76.6646509%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING");
-
-        const json = await data.json();
+        // const json = await data.json();
+        // using dummy data to save from cors error
+        const json = RestaurantDummyData
         // TO find restaurant data from all cards 
-        console.log(json)
         let resData = [];
-        for (const each of json?.data?.cards) {
-            if (each?.card?.card?.gridElements?.infoWithStyle?.restaurants) {
-                resData = each?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-            }
-        }
+        // for (const each of json?.data?.cards) {
+        //     if (each?.card?.card?.gridElements?.infoWithStyle?.restaurants) {
+        //         resData = each?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        //     }
+        // }
+        resData = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         setList(resData);
         setFilteredList(resData);
-        settitle(json.data.cards[3].card.card.title)
+        settitle(json.data.cards[2].card.card.title)
     };
     const onlineStatus = useOnlineStatus();
 
@@ -117,14 +117,6 @@ const Body = () => {
                             <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
                                 {/* <Restaurantcard resData={restaurant} />  */}
                                 {restaurant.info.avgRating >= 4.5 ? (<PromotedRestaurant resData={restaurant} />) : (<Restaurantcard resData={restaurant} />)}
-                            </Link>
-                        ))
-                    }
-                    {
-                        FilteredList.map(restaurant => (
-                            <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
-                                {/* <Restaurantcard resData={restaurant} />  */}
-                                {restaurant.info.avgRating >= 4.4 ? (<PromotedRestaurant resData={restaurant} />) : (<Restaurantcard resData={restaurant} />)}
                             </Link>
                         ))
                     }
